@@ -34,6 +34,8 @@ func main() {
 		fmt.Print("\n---\n\n")
 		w.WriteHeader(204)
 	})
-	fmt.Printf("Beep! Waiting on port %s\n\n", os.Args[1])
-	http.ListenAndServe(fmt.Sprintf(":%s", os.Args[1]), nil)
+	fmt.Printf("Beep! :>\nListening on port %s\n", os.Args[1])
+	if err := http.ListenAndServe(fmt.Sprintf(":%s", os.Args[1]), nil); err != nil {
+   fmt.Printf("Boop! :<\nGot an error trying to listen on port %s: \"%s\"\n", os.Args[1], err.Error())
+ }
 }
