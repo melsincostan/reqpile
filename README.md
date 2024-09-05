@@ -2,8 +2,8 @@
 
 Tiny, friendly HTTP debugging tool
 
-The goal of this tool is to see that requests are being sent correctly when an actual API server is overkill or not present. This simply prints the request contents (headers + body bytes) to the console, surrounded by a bit of formatting.
-The request display itself is made to look like the actual text sent over HTTP.
+The goal of this tool is to check that requests are being sent correctly when an actual API server is overkill or not present. This simply prints the request contents (headers + body bytes) to the console, surrounded by a bit of formatting.
+The request display itself is made to look like the actual text sent over HTTP. It doesn't print much more than what you would see by listening with netcat: additions are separators between requests, a request counter that counts requests received since the start of the program and a source IP and port.
 
 ## Building
 
