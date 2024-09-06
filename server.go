@@ -18,7 +18,7 @@ func main() {
 	}
 	http.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
 		total++
-		fmt.Printf("--- Request #%06d | from %s ---\n", total, r.RemoteAddr)
+		fmt.Printf("###--- Request #%06d | from %s ---\n", total, r.RemoteAddr)
 		fmt.Printf("%s %s %s\n", r.Method, r.RequestURI, r.Proto)
 		for k, v := range r.Header {
 			fmt.Printf("%s: %s\n", k, strings.Join(v, ";"))
@@ -31,7 +31,7 @@ func main() {
 			}
 			fmt.Printf("%s", buf.Bytes())
 		}
-		fmt.Print("\n---\n\n")
+		fmt.Print("\n###---\n\n")
 		w.WriteHeader(204)
 	})
 	fmt.Printf("Beep! :>\nListening on port %s\n", os.Args[1])
