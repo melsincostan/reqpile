@@ -18,7 +18,7 @@ func main() {
 	}
 	http.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
 		total++
-		fmt.Printf("###--- Request #%06d | from %s ---###\n", total, r.RemoteAddr)
+		fmt.Printf("###--- Request #%06d | from %s | %s ---###\n", total, r.RemoteAddr, time.Now())
 		fmt.Printf("%s %s %s\n", r.Method, r.RequestURI, r.Proto)
 		for k, v := range r.Header {
 			fmt.Printf("%s: %s\n", k, strings.Join(v, ";"))
