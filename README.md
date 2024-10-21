@@ -48,3 +48,15 @@ Running a binary (generated using `go build`)
 ```bash
 ./reqpile $port tls $cert $key
 ```
+
+### Generating a testing self-signed certificate
+
+A self-signed certificate can be generated interactively using openssl:
+
+```bash
+openssl req -x509 -newkey rsa:4096 -keyout key.pem -out cert.pem -sha256 -days 365 -nodes
+```
+
+This will create a certificate valid for 365 days, without a passphrase, after asking a few questions. The certificate file itself will be `cert.pem`, and the private key will be `key.pem`.
+This method requires apps wanting to interact with reqpile to be configured to accept self-signed certificates.
+For non self-signed certificate, one could acquire a domain and use Let's Encrypt to get certificates for free.
