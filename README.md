@@ -22,7 +22,7 @@ go clean
 
 ## Running
 
-In the following commands, replace `$port` by the port you want the tool to listen on.
+In the following commands, replace `$port` by the port the tool should listen on.
 All of this assumes a linux host, as it is fully untested on any other OS (but should work the same)
 
 Running without keeping an artefact:
@@ -33,4 +33,18 @@ go run . $port
 Running a version that was compiled using `go build` (this should create an executable file called `reqpile`):
 ```bash
 ./reqpile $port
+```
+
+## Running over TLS
+
+In the following commands, replace `$port` by the port the tool should listen on, `$cert` with the path to the TLS certificate and `$key` with the TLS certificate key.
+
+Running direcctly, without a binary:
+```bash
+go run . $port tls $cert $key  
+```
+
+Running a binary (generated using `go build`)
+```bash
+./reqpile $port tls $cert $key
 ```
